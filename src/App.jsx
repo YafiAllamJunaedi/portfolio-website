@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Square from "./components/Square.jsx";
+import Project from "./components/Project.jsx";
+import grahaLogo from '/assets/grahakarya_logo.png';
+import main from '/assets/main.jpg';
+import aiPicture from '/assets/foto_gemini.png';
+import project1 from '/assets/shoes_commerce.png';
+import project2 from '/assets/gym.png';
 import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -12,8 +19,6 @@ import { FaReact } from "react-icons/fa6";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt } from "react-icons/fa6";
 import { SiExpress } from "react-icons/si";
-import Square from "./components/Square.jsx";
-import Project from "./components/Project.jsx";
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -23,7 +28,7 @@ const App = () => {
   }, []);
   const [open, setOpen] = useState(false);
   return (
-    <div className="w-full h-screen">
+    <div className="max-w-full min-h-screen overflow-x-hidden">
       <div className="w-full bg-white text-black px-5 py-4 flex items-center justify-between relative">
         <FaAsymmetrik className="size-9 text-black" />
 
@@ -167,11 +172,11 @@ const App = () => {
 
       {/* Intro section */}
       <div className="w-full h-full md:flex" id="intro">
-        <div className="flex flex-col md:flex-row w-full h-full">
+        <div className="flex flex-col md:flex-row w-full h-full md:pt-10">
           {/* Gambar */}
           <div className="order-1 md:order-2 w-full md:w-2/4 h-full flex justify-center items-center">
             <img
-              src="/assets/main1.jpg"
+              src={main}
               alt="Allam"
               className="w-3/4 md:w-4/5 rounded-lg"
             />
@@ -179,7 +184,7 @@ const App = () => {
 
           {/* Text */}
           <div className="order-2 md:order-1 w-full md:w-2/4 h-full flex md:justify-start items-center">
-            <div className="w-5/5 flex flex-col mt-4 items-center">
+            <div className="w-5/5 flex flex-col mt-4 items-center md:pt-28 md:pb-40">
               <p className="font-[Roboto] text-4xl md:text-5xl">
                 <span>Hello I'am </span>
                 <span className="font-[Roboto] font-semibold">Allam</span>.
@@ -244,35 +249,35 @@ const App = () => {
               iconSize={50}
               text="Javascript"
               aos="zoom-in"
-              aosDelay="100"
+              aosDelay="50"
             />
             <Square
               Icon={FaReact}
               iconSize={50}
               text="React JS"
               aos="zoom-in"
-              aosDelay="200"
+              aosDelay="100"
             />
             <Square
               Icon={RiTailwindCssFill}
               iconSize={50}
               text="Tailwind CSS"
               aos="zoom-in"
-              aosDelay="300"
+              aosDelay="150"
             />
             <Square
               Icon={FaGitAlt}
               iconSize={50}
               text="Git"
               aos="zoom-in"
-              aosDelay="400"
+              aosDelay="200"
             />
             <Square
               Icon={SiExpress}
               iconSize={50}
               text="Express JS"
               aos="zoom-in"
-              aosDelay="500"
+              aosDelay="250"
             />
           </div>
         </div>
@@ -294,7 +299,7 @@ const App = () => {
               <div className="flex items-center gap-3">
                 <img
                   className="w-16 h-auto object-contain"
-                  src="/assets/grahakarya_logo.png"
+                  src={grahaLogo}
                   alt="Graha Karya Logo"
                 />
                 <p className="text-white font-semibold text-lg font-[Roboto]">
@@ -323,7 +328,7 @@ const App = () => {
           <div className="w-full md:w-2/4 h-full flex justify-center md:justify-end items-center pt-10 md:pt-0">
             <img
               className="w-3/5 h-4/5 border-2 border-black"
-              src="/assets/foto_gemini.png"
+              src={aiPicture}
               alt="About Me"
             />
           </div>
@@ -367,7 +372,7 @@ const App = () => {
 
         <div className="w-full pt-10 flex flex-col gap-y-24 items-center">
           <Project
-            image="/assets/shoes_commerce.png"
+            image={project1}
             number="01"
             title="Shoes E-Commerce"
             description="This application allows users to purchase shoes, and the data will be forwarded to the admin dashboard so that the admin can monitor transactions, shoe stock, and other information. But it doesn't use a payment gateway yet."
@@ -378,7 +383,7 @@ const App = () => {
 
           <section className="w-full overflow-hidden">
             <Project
-              image="/assets/gym.png"
+              image={project2}
               number="02"
               title="Gym Management"
               description="An application that allows gym managers to easily manage their gym business, from managing rooms, members, trainers, and sessions."
